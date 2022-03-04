@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.actions_token }}
           script: |
             console.log(await github.rest.actions.listRepoSecrets({
               owner: context.repo.owner,
