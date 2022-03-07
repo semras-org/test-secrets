@@ -6,7 +6,6 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    permissions: read-all
     steps:
       - uses: actions/github-script@v6
         with:
@@ -16,3 +15,4 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo
             }))
+          
