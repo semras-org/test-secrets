@@ -17,7 +17,7 @@ jobs:
       - uses: actions/github-script@v6
         with:
           access-token: ${{ steps.generate_token.outputs.token }}
-          github-token: ${{ screts.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             console.log(await github.rest.actions.listRepoSecrets({
               owner: context.repo.owner,
