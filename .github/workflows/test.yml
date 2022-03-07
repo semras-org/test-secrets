@@ -6,13 +6,20 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    permissions: read-all
     steps:
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
       - uses: actions/github-script@v6
         with:
-          github-token: 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
+          access-token: ${{ steps.generate_token.outputs.token }}
+          github-token: ${{ screts.GITHUB_TOKEN }}
           script: |
             console.log(await github.rest.actions.listRepoSecrets({
               owner: context.repo.owner,
               repo: context.repo.repo
             }))
-          
