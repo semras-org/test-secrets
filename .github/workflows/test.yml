@@ -1,6 +1,6 @@
-name: print-secrets
+name: detect-unused-secrets
 
-on: 
+on:
   workflow_dispatch:
 
 jobs:
@@ -22,3 +22,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo
             }))
+              - name: Detect unused secrets
+      - name: detect unused secrets
+        uses: nearform/github-action-detect-unused-secrets@fix/es-module-scope
+        with:
+          github-token: ${{ steps.generate_token.outputs.token }}
