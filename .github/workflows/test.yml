@@ -22,7 +22,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo
             }))
-      - name: detect unused secrets
-        uses: nearform/github-action-detect-unused-secrets@fix/es-module-scope
+      - name: Detect unused secrets
+        uses: semraSh/test-detect-secrets@v1
         with:
-          github-token: ${{ steps.generate_token.outputs.token }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
