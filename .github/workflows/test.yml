@@ -23,6 +23,6 @@ jobs:
               repo: context.repo.repo
             }))
       - name: Detect unused secrets
-        uses: semraSh/test-detect-secrets@v1
+        uses: semraSh/test-detect-secrets@test/test
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
