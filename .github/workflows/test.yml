@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.personal_access_token }}
+          github-token: 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
           script: |
             console.log(await github.rest.actions.listRepoSecrets({
               owner: context.repo.owner,
