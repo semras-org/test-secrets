@@ -22,7 +22,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo
             }))
-              - name: Detect unused secrets
       - name: detect unused secrets
         uses: nearform/github-action-detect-unused-secrets@fix/es-module-scope
         with:
