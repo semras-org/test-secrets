@@ -16,6 +16,6 @@ jobs:
           private_key: ${{ secrets.PRIVATE_KEY }}
       - uses: actions/checkout@v3
       - name: Detect unused secrets
-        uses: semraSh/test-detect-secrets@v1
+        uses: semraSh/test-detect-secrets@main
         with:
           github-token: ${{ steps.generate_token.outputs.token }}
