@@ -18,4 +18,4 @@ jobs:
       - name: Detect unused secrets
         uses: semraSh/test-detect-secrets@main
         with:
-          token: ${{ steps.generate_token.outputs.token }}
+          github-token: ${{ steps.generate_token.outputs.token }}
