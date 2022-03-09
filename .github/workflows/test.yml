@@ -6,10 +6,16 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    permissions: read-all
     steps:
-      - uses: actions/checkout@v3
-      - name: Detect unused secrets
-        uses: semraSh/test-detect-secrets@v1.0.4
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
         with:
-          github-token: ${{ secrets.personal_access_token }}
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Detect unused secrets
+        uses: SemraSh/test-detect-secrets@main
+        with:
+          github-token: ${{ steps.generate_token.outputs.token }}
